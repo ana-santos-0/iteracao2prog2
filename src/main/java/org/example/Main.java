@@ -32,7 +32,9 @@ public class Main {
             System.out.println("3. Adicionar Técnico de Saúde");
             System.out.println("4. Calcular Dados para Intervalo de Datas");
             System.out.println("5. Adicionar Medição a Paciente");
-            System.out.println("6. Sair");
+            System.out.println("6. Ver dados");
+            System.out.println("7. Alterar sinais vitais");
+            System.out.println("8. Sair");
             System.out.print("Escolha uma opção: ");
 
             int escolha = scanner.nextInt();
@@ -54,7 +56,7 @@ public class Main {
                     hospital.addTecnicoSaude(novoTecnico);
 
                     break;
-
+/*
                 case 4:
                     System.out.print("\nData de início (dd/mm/yyyy): ");
                     String[] partes = scanner.nextLine().split("/");
@@ -83,7 +85,7 @@ public class Main {
 
                     hospital.calcularDados(dataInicio, dataFim, nomes, ordem);
                     break;
-
+*/
                 case 5:
                     System.out.print("Nome do técnico: ");
                     String nomeTec = scanner.nextLine();
@@ -110,14 +112,12 @@ public class Main {
                     Date data = new Date(Integer.parseInt(dataParts[2]) - 1900, Integer.parseInt(dataParts[1]) - 1, Integer.parseInt(dataParts[0]));
 
                     double valor = 0;
-                    while (valor <= 0)
-                    {
+                    while (valor <= 0) {
                         System.out.print("Valor da medição: ");
                         valor = scanner.nextDouble();
                         scanner.nextLine();
 
-                        if(valor <= 0)
-                        {
+                        if (valor <= 0) {
                             System.out.print("Erro de leitura. Digite novamente.\n");
                         }
                     }
@@ -145,8 +145,13 @@ public class Main {
                         System.out.println("Nota: Valor de saturação superior a 100 foi ajustado automaticamente para 100.");
                     }
                     break;
-
                 case 6:
+                    hospital.lerficheiro();
+                    break;
+
+
+                case 7:
+                case 8:
                     exit = true;
                     System.out.println("A sair...");
                     break;

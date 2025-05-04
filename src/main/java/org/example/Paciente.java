@@ -10,6 +10,7 @@ import java.util.*;
  * Contém medições de sinais vitais e métodos para calcular a média, desvio padrão, mínimo, máximo e classificar o paciente.
  */
 public class Paciente extends Pessoa {
+    public static Paciente novoPaciente;
     //public static Paciente novoPaciente;
     private List<Medicao> medicoes;
     private double altura;
@@ -244,4 +245,5 @@ public class Paciente extends Pessoa {
             return "Normal";
         }
     }
+
 }
