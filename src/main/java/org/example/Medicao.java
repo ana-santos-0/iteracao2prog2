@@ -1,4 +1,8 @@
 package org.example;
+
+public abstract class Medicao implements
+
+
 /*
 import java.util.Date;
 

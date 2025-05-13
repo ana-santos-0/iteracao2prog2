@@ -80,17 +80,33 @@ public class Hospital {
             }
         }
 
+        String[] tipos = {"Frequencia", "Temperatura", "Saturação"};
+
+        for (String tipo : tipos) {
+            System.out.println("Média de " + tipo + ": " + Registos.calcularMedia(tipo, dataInicio, dataFim));
+            System.out.println("Desvio Padrão de " + tipo + ": " + Registos.calcularDesvioPadrao(tipo, dataInicio, dataFim));
+            System.out.println("Mínimo de " + tipo + ": " + Registos.calcularMinimo(tipo, dataInicio, dataFim));
+            System.out.println("Máximo de " + tipo + ": " + Registos.calcularMaximo(tipo, dataInicio, dataFim));
+            System.out.println();
+        }
+
+        // Classificação do paciente
+        System.out.println("Classificação: " + Registos.classificarPaciente());
+        System.out.println("----------------------------------");
+    }
+
         // Exibe os dados calculados para os pacientes selecionados
-        for (Paciente paciente : pacientesSelecionados) {
+        /*for (Paciente paciente : pacientesSelecionados) {
             System.out.println("Paciente: " + paciente.getNome());
+            Registos registos = paciente.getRegistos();
 
             // Exemplo de cálculos de dados (frequência cardíaca, temperatura, etc.)
-            System.out.println("Média de Frequência Cardíaca: " + paciente.calcularMedia("Frequencia", dataInicio, dataFim));
-            System.out.println("Desvio Padrão de Frequência Cardíaca: " + paciente.calcularDesvioPadrao("Frequencia", dataInicio, dataFim));
-            System.out.println("Mínimo de Frequência Cardíaca: " + paciente.calcularMinimo("Frequencia", dataInicio, dataFim));
-            System.out.println("Máximo de Frequência Cardíaca: " + paciente.calcularMaximo("Frequencia", dataInicio, dataFim));
+            System.out.println("Média de Frequência Cardíaca: " + Registos.calcularMedia("Frequencia", dataInicio, dataFim));
+            System.out.println("Desvio Padrão de Frequência Cardíaca: " + Registos.calcularDesvioPadrao("Frequencia", dataInicio, dataFim));
+            System.out.println("Mínimo de Frequência Cardíaca: " + Registos.calcularMinimo("Frequencia", dataInicio, dataFim));
+            System.out.println("Máximo de Frequência Cardíaca: " + Registos.calcularMaximo("Frequencia", dataInicio, dataFim));
 
-            System.out.println("Classificação: " + paciente.classificarPaciente());
+            System.out.println("Classificação: " + Registos.classificarPaciente());
             System.out.println("----------------------------------");
         }
 
@@ -98,29 +114,29 @@ public class Hospital {
             System.out.println("Paciente: " + paciente.getNome());
 
             // Exemplo de cálculos de dados (frequência cardíaca, temperatura, etc.)
-            System.out.println("Média de Temperatura: " + paciente.calcularMedia("Temperatura", dataInicio, dataFim));
-            System.out.println("Desvio Padrão de Temperatura: " + paciente.calcularDesvioPadrao("Temperatura", dataInicio, dataFim));
-            System.out.println("Mínimo de Temperatura: " + paciente.calcularMinimo("Temperatura", dataInicio, dataFim));
-            System.out.println("Máximo de Temperatura: " + paciente.calcularMaximo("Temperatura", dataInicio, dataFim));
+            System.out.println("Média de Temperatura: " + Registos.calcularMedia("Temperatura", dataInicio, dataFim));
+            System.out.println("Desvio Padrão de Temperatura: " + Registos.calcularDesvioPadrao("Temperatura", dataInicio, dataFim));
+            System.out.println("Mínimo de Temperatura: " + Registos.calcularMinimo("Temperatura", dataInicio, dataFim));
+            System.out.println("Máximo de Temperatura: " + Registos.calcularMaximo("Temperatura", dataInicio, dataFim));
 
-            System.out.println("Classificação: " + paciente.classificarPaciente());
+            System.out.println("Classificação: " + Registos.classificarPaciente());
             System.out.println("----------------------------------");
         }
         for (Paciente paciente : pacientesSelecionados) {
             System.out.println("Paciente: " + paciente.getNome());
 
             // Exemplo de cálculos de dados (frequência cardíaca, temperatura, etc.)
-            System.out.println("Média de Saturação: " + paciente.calcularMedia("Saturação", dataInicio, dataFim));
-            System.out.println("Desvio Padrão de Saturação: " + paciente.calcularDesvioPadrao("Saturação", dataInicio, dataFim));
-            System.out.println("Mínimo de Saturação: " + paciente.calcularMinimo("Saturação", dataInicio, dataFim));
-            System.out.println("Máximo de Saturação: " + paciente.calcularMaximo("Saturação", dataInicio, dataFim));
+            System.out.println("Média de Saturação: " + Registos.calcularMedia("Saturação", dataInicio, dataFim));
+            System.out.println("Desvio Padrão de Saturação: " + Registos.calcularDesvioPadrao("Saturação", dataInicio, dataFim));
+            System.out.println("Mínimo de Saturação: " + Registos.calcularMinimo("Saturação", dataInicio, dataFim));
+            System.out.println("Máximo de Saturação: " + Registos.calcularMaximo("Saturação", dataInicio, dataFim));
 
 
-            System.out.println("Classificação: " + paciente.classificarPaciente());
+            System.out.println("Classificação: " + Registos.classificarPaciente());
             System.out.println("----------------------------------");
         }
     }
-
+*/
     public Paciente getPacientePorNome(String nome) {
         for (Paciente p : pacientes) {
             if (p.getNome().equalsIgnoreCase(nome)) {

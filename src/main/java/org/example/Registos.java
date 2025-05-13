@@ -23,7 +23,7 @@ public class Registos {
      * Normaliza uma data para garantir que apenas a parte da data (ano, mês, dia) é considerada.
      */
     private Date normalizarData(Date data) {
-        SimpleDateFormat sdf = new SimpleDateFormat("aaaa-mm-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         sdf.format(data);
         return data;
     }
@@ -61,7 +61,7 @@ public class Registos {
         }
     }
 
-/*
+
     public double calcularDesvioPadrao(String tipo, Date dataInicio, Date dataFim) {
         double media = calcularMedia(tipo, dataInicio, dataFim);
         double somaQuadrados = 0;
@@ -89,8 +89,6 @@ public class Registos {
 
     }
 
-    */
-    /*
     public double calcularMinimo(String tipo, Date dataInicio, Date dataFim) {
         double minimo = Double.MAX_VALUE; //???
 
@@ -121,7 +119,6 @@ public class Registos {
         return minimo;
 
     }
-*/
     /**
      * Calcula o valor máximo das medições de um tipo específico, dentro de um intervalo de datas.
      *
@@ -130,10 +127,6 @@ public class Registos {
      * @param dataFim    Data de fim do intervalo (pode ser null)
      * @return O valor máximo das medições dentro do intervalo de datas.
      */
-    /*
-
-    METODO COM 0 UTILIZAÇOES
-
 
     public double calcularMaximo(String tipo, Date dataInicio, Date dataFim) {
         double maximo = Double.MIN_VALUE;
@@ -159,14 +152,13 @@ public class Registos {
             }
         }
         return maximo == Double.MIN_VALUE ? 0 : maximo;
-    }*/
-
+    }
     /**
      * Classifica o paciente com base nos sinais vitais.
      *
      * @return A classificação do paciente (Normal, Atenção, Crítico).
      */
-
+/*
     public double calcularMinimo(String tipo, Date dataInicio, Date dataFim) {
         double minimo = Double.MAX_VALUE;
 
@@ -185,7 +177,7 @@ public class Registos {
         }
         return minimo;
     }
-
+*/
 
         public String classificarPaciente () {
             double frequenciaCardiacaMedia = calcularMedia("Frequencia", null, null);
@@ -199,26 +191,5 @@ public class Registos {
             } else {
                 return "Normal";
             }
-/*
-        public abstract class Medicao {
-            private Date data;
-            private double valor;
-
-            public Medicao(Date data, double valor) {
-                this.data = data;
-                this.valor = valor;
-            }
-
-            public Date getData() {
-                return data;
-            }
-
-            public double getValor() {
-                return valor;
-            }
-
-            public abstract String getTipo();
-        }
-        */
         }
     }

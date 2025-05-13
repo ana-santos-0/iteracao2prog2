@@ -1,5 +1,7 @@
 package org.example;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -12,13 +14,18 @@ public class Paciente extends Pessoa {
     private List<IMedicao> medicoes;
     private double altura;
     private double peso;
+    private Registos registos;
 
     public Paciente(String nome, Date dataNascimento, double altura, double peso) {
         super(nome, dataNascimento);
         this.altura = altura;
         this.peso = peso;
         medicoes = new ArrayList<IMedicao>();
+        this.registos = new Registos();
+    }
 
+    public Registos getRegistos() {
+        return registos;
     }
 
     public static void infoPaciente() {
@@ -40,13 +47,4 @@ public class Paciente extends Pessoa {
         this.medicoes.add(medicao);
     }
 
-/*
-    public double getAltura() {
-        return altura;
-    }
-
-    public double getPeso() {
-        return peso;
-    }
- */
 }

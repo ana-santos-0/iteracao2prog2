@@ -54,7 +54,7 @@ public class Main {
                     hospital.addTecnicoSaude(novoTecnico);
 
                     break;
-
+/*
                 case 4:
                     System.out.print("\nData de início (dd/mm/yyyy): ");
                     String[] partes = scanner.nextLine().split("/");
@@ -83,7 +83,7 @@ public class Main {
 
                     hospital.calcularDados(dataInicio, dataFim, nomes, ordem);
                     break;
-
+*/
                 case 5:
                     System.out.print("Nome do técnico: ");
                     String nomeTec = scanner.nextLine();
@@ -107,17 +107,15 @@ public class Main {
 
                     System.out.print("Data da medição (dd/mm/yyyy): ");
                     String[] dataParts = scanner.nextLine().split("/");
-                    Date data = new Date(Integer.parseInt(dataParts[2]) - 1900, Integer.parseInt(dataParts[1]) - 1, Integer.parseInt(dataParts[0]));
+                    Date data = new Date(Integer.parseInt(dataParts[2]), Integer.parseInt(dataParts[1]) - 1, Integer.parseInt(dataParts[0]));
 
                     double valor = 0;
-                    while (valor <= 0)
-                    {
+                    while (valor <= 0) {
                         System.out.print("Valor da medição: ");
                         valor = scanner.nextDouble();
                         scanner.nextLine();
 
-                        if(valor <= 0)
-                        {
+                        if(valor <= 0) {
                             System.out.print("Erro de leitura. Digite novamente.\n");
                         }
                     }
@@ -125,7 +123,7 @@ public class Main {
                     IMedicao novaMedicao = null;
                     switch (tipo) {
                         case 1:
-                            novaMedicao = new FrequenciaCardiaca(data, (int) valor);
+                            novaMedicao = new FrequenciaCardiaca(data, valor);
                             break;
                         case 2:
                             novaMedicao = new Temperatura(data, valor);
@@ -150,6 +148,8 @@ public class Main {
                     exit = true;
                     System.out.println("A sair...");
                     break;
+                case 7:
+                case 8:
 
                 default:
                     System.out.println("Opção inválida!");
