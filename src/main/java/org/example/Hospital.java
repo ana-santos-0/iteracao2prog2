@@ -33,6 +33,11 @@ public class Hospital {
 
     // Lista todos os técnicos de saúde
     public void listarTecnicos() {
+        if (tecnicosDeSaude.isEmpty()) {
+            System.out.println("Nenhum técnico de saúde registado.");
+            return;
+        }
+
         for (TecnicoSaude t : tecnicosDeSaude) {
             System.out.println(t.getNome());
         }
@@ -45,12 +50,14 @@ public class Hospital {
         // Se a lista de nomes não estiver vazia, filtra os pacientes
         if (nomes != null && !nomes.isEmpty()) {
             for (Paciente paciente : pacientes) {
-                if (nomes.contains(paciente.getNome())) {
-                    pacientesSelecionados.add(paciente);
+                for (String nome : nomes) {
+                    if (nomes.contains(paciente.getNome())) {
+                        pacientesSelecionados.add(paciente);
+                    }
                 }
             }
         } else {
-            pacientesSelecionados = pacientes;
+            pacientesSelecionados = new ArrayList<>(pacientes);
         }
 
         // Sorting logic

@@ -1,12 +1,24 @@
 package org.example;
-
+/*
 import java.util.Date;
 
-/**
- * Interface que obriga à implementação de getData e getValor.
- */
-public interface Medicao {
-    Date getData();
-    double getValor();
-    String getTipo();
+public abstract class Medicao {
+    private Date data;
+    private double valor;
+
+    public Medicao(Date data, double valor) {
+        this.data = data;
+        this.valor = valor;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public abstract String getTipo();
 }
+*/

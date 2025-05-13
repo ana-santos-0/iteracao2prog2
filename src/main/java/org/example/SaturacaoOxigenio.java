@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Classe que implementa a medição de Saturação de Oxigénio.
  */
-public class SaturacaoOxigenio implements Medicao {
+public class SaturacaoOxigenio implements IMedicao {
     private Date data;
     private double valor;
 

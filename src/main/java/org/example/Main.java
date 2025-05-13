@@ -6,14 +6,14 @@ public class Main {
     public static void main(String[] args) {
 
         // Criar pacientes e técnicos
-        Paciente paciente1 = new Paciente("João Silva", new Date(1990 - 1900, 5, 15), 1.75, 70);
-        Paciente paciente2 = new Paciente("Maria Santos", new Date(1985 - 1900, 2, 10), 1.68, 65);
-        Paciente paciente3 = new Paciente("Carlos Oliveira", new Date(1980 - 1900, 3, 20), 1.80, 80);
-        Paciente paciente4 = new Paciente("Ana Costa", new Date(1995 - 1900, 10, 5), 1.60, 55);
+        Paciente paciente1 = new Paciente("João Silva", new Date(1990, 5, 15), 1.75, 70);
+        Paciente paciente2 = new Paciente("Maria Santos", new Date(1985, 2, 10), 1.68, 65);
+        Paciente paciente3 = new Paciente("Carlos Oliveira", new Date(1980, 3, 20), 1.80, 80);
+        Paciente paciente4 = new Paciente("Ana Costa", new Date(1995, 10, 5), 1.60, 55);
 
-        TecnicoSaude tecnico1 = new TecnicoSaude("Rui Oliveira", new Date(1980 - 1900, 3, 20), "Enfermeiro");
-        TecnicoSaude tecnico2 = new TecnicoSaude("Ana Silva", new Date(1985 - 1900, 11, 15), "Técnico de Saúde");
-
+        TecnicoSaude tecnico1 = new TecnicoSaude("Rui Oliveira", new Date(1980, 3, 20), "Enfermeiro");
+        TecnicoSaude tecnico2 = new TecnicoSaude("Ana Silva", new Date(1985, 11, 15), "Técnico de Saúde");
+//adição de pacientes e técnicos de saude
         Hospital hospital = new Hospital();
         hospital.addPaciente(paciente1);
         hospital.addPaciente(paciente2);
@@ -24,7 +24,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
-
+//menu
         while (!exit) {
             System.out.println("\n=== Sistema de Monitorização Hospitalar ===");
             System.out.println("1. Listar Técnicos de Saúde");
@@ -37,7 +37,7 @@ public class Main {
 
             int escolha = scanner.nextInt();
             scanner.nextLine();
-
+//escolha de opção
             switch (escolha) {
                 case 1:
                     System.out.println("\n=== Técnicos de Saúde ===");
@@ -122,7 +122,7 @@ public class Main {
                         }
                     }
 
-                    Medicao novaMedicao = null;
+                    IMedicao novaMedicao = null;
                     switch (tipo) {
                         case 1:
                             novaMedicao = new FrequenciaCardiaca(data, (int) valor);

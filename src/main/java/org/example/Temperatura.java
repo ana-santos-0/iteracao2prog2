@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Classe que implementa a medição de Temperatura.
  */
-public class Temperatura implements Medicao {
+public class Temperatura implements IMedicao {
     private Date data;
     private double valor;
 
