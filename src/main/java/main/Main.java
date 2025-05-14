@@ -2,6 +2,7 @@ package main;
 
 import model.*;
 import org.example.Hospital;
+import model.Paciente;
 
 import java.util.*;
 

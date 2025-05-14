@@ -1,27 +1,41 @@
 package service;
 
-package service;
-
 import java.util.List;
-import java.util.Random;
 import model.*;
 
-public class SimuladorAlteracoes {
+public class Alteracoes {
 
-    public static void alterarTodosPacientes(List<Paciente> pacientes, double percentagem) {
-        Random rand = new Random();
-
+    public static void aumentarTodosPacientes(List<Paciente> pacientes, double percentagem) {
         for (Paciente paciente : pacientes) {
-            for (Medicao medicao : paciente.getMedicoes()) {
+            for (IMedicao medicao : paciente.getMedicoes()) {
                 double valorOriginal = medicao.getValor();
                 double variacao = valorOriginal * percentagem / 100.0;
-                double novaMedicao = rand.nextBoolean()
-                        ? valorOriginal + variacao
-                        : valorOriginal - variacao;
-                medicao.setValor(novaMedicao);
+                double novoValor = valorOriginal + variacao;  // aumenta sempre
+
+                // Só altera se for uma instância da classe Medicao
+                if (medicao instanceof Medicao) {
+                    ((Medicao) medicao).setValor(novoValor);
+                }
             }
         }
 
         System.out.println("Alterações simuladas em todos os pacientes.");
+    }
+
+    public static void diminuirTodosPacientes(List<Paciente> pacientes, double percentagem) {
+        for (Paciente paciente : pacientes) {
+            for (IMedicao medicao : paciente.getMedicoes()) {
+                double valorOriginal = medicao.getValor();
+                double variacao = valorOriginal * percentagem / 100.0;
+                double novoValor = valorOriginal - variacao;  // diminui sempre
+
+                // Só altera se for uma instância da classe Medicao
+                if (medicao instanceof Medicao) {
+                    ((Medicao) medicao).setValor(novoValor);
+                }
+            }
+        }
+
+        System.out.println("Diminuição simulada em todos os pacientes.");
     }
 }
