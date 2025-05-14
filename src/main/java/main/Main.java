@@ -1,4 +1,7 @@
-package org.example;
+package main;
+
+import model.*;
+import org.example.Hospital;
 
 import java.util.*;
 

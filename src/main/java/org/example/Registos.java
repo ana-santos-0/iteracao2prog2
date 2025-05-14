@@ -1,10 +1,14 @@
 package org.example;
 
+import model.FrequenciaCardiaca;
+import model.IMedicao;
+import model.SaturacaoOxigenio;
+import model.Temperatura;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 public class Registos {
     /**
@@ -122,10 +126,10 @@ public class Registos {
     /**
      * Calcula o valor máximo das medições de um tipo específico, dentro de um intervalo de datas.
      *
-     * @param tipo       Tipo de medição (Frequência Cardíaca, Temperatura, Saturação)
-     * @param dataInicio Data de início do intervalo (pode ser null)
-     * @param dataFim    Data de fim do intervalo (pode ser null)
-     * @return O valor máximo das medições dentro do intervalo de datas.
+     Tipo de medição (Frequência Cardíaca, Temperatura, Saturação)
+     dataInicio Data de início do intervalo (pode ser null)
+     dataFim    Data de fim do intervalo (pode ser null)
+     devolve o valor máximo das medições dentro do intervalo de datas.
      */
 
     public double calcularMaximo(String tipo, Date dataInicio, Date dataFim) {

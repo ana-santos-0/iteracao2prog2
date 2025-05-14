@@ -1,5 +1,7 @@
 package org.example;
 
+import model.TecnicoSaude;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;

@@ -1,15 +1,15 @@
-package org.example;
+package model;
 
 import java.util.Date;
 
 /**
- * Classe que implementa a medição de Temperatura.
+ * Classe que implementa a medição de Frequência Cardíaca.
  */
-public class Temperatura implements IMedicao {
+public class FrequenciaCardiaca implements IMedicao {
     private Date data;
     private double valor;
 
-    public Temperatura(Date data, double valor) {
+    public FrequenciaCardiaca(Date data, double valor) {
         this.data = data;
         this.valor = valor;
     }
@@ -25,6 +25,6 @@ public class Temperatura implements IMedicao {
     }
 
     public String getTipo() {
-        return "Temperatura";
+        return "Frequência Cardíaca";
     }
 }

@@ -1,4 +1,4 @@
-package org.example;
+package model;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ public interface IMedicao {
     Date getData();
     double getValor();
     String getTipo();
-
+/*
     public static void scoreDeGravidade(String[][] string1, double[][] string2, int i) {
         double scoreDeGravidade = 0;
         int somabpm = 0, somasat = 0;
@@ -67,6 +67,5 @@ public interface IMedicao {
         } else if (scoreDeGravidade <= 5 && scoreDeGravidade > 3.6) {
             System.out.println("Gravidade Alta\n"); // Entre 3.6 e 5
         }
-    }
-
+        */
 }
