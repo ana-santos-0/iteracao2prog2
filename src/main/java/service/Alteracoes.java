@@ -5,37 +5,36 @@ import model.*;
 
 public class Alteracoes {
 
-    public static void aumentarTodosPacientes(List<Paciente> pacientes, double percentagem) {
-        for (Paciente paciente : pacientes) {
-            for (IMedicao medicao : paciente.getMedicoes()) {
-                double valorOriginal = medicao.getValor();
-                double variacao = valorOriginal * percentagem / 100.0;
-                double novoValor = valorOriginal + variacao;  // aumenta sempre
+    public static double calcularScore(Paciente p) {
+        double fc = p.calcularMedia("Frequencia");
+        double temp = p.calcularMedia("Temperatura");
+        double spo2 = p.calcularMedia("Saturacao");
 
-                // Só altera se for uma instância da classe Medicao
-                if (medicao instanceof Medicao) {
-                    ((Medicao) medicao).setValor(novoValor);
-                }
-            }
-        }
+        int scoreFC = pontuarFC(fc);
+        int scoreTemp = pontuarTemperatura(temp);
+        int scoreSpO2 = pontuarSpO2(spo2);
 
-        System.out.println("Alterações simuladas em todos os pacientes.");
+        return (scoreFC * 0.3) + (scoreTemp * 0.4) + (scoreSpO2 * 0.3);
     }
 
-    public static void diminuirTodosPacientes(List<Paciente> pacientes, double percentagem) {
-        for (Paciente paciente : pacientes) {
-            for (IMedicao medicao : paciente.getMedicoes()) {
-                double valorOriginal = medicao.getValor();
-                double variacao = valorOriginal * percentagem / 100.0;
-                double novoValor = valorOriginal - variacao;  // diminui sempre
+    private static int pontuarFC(double fc) {
+        if (fc < 50 || fc > 130) return 5;
+        if (fc < 60 || fc > 120) return 4;
+        if (fc <= 100) return 1;
+        return 3;
+    }
 
-                // Só altera se for uma instância da classe Medicao
-                if (medicao instanceof Medicao) {
-                    ((Medicao) medicao).setValor(novoValor);
-                }
-            }
-        }
+    private static int pontuarTemperatura(double t) {
+        if (t < 35 || t > 39.5) return 5;
+        if (t < 36 || t > 38.5) return 4;
+        if (t <= 37.5) return 1;
+        return 3;
+    }
 
-        System.out.println("Diminuição simulada em todos os pacientes.");
+    private static int pontuarSpO2(double s) {
+        if (s < 85) return 5;
+        if (s < 90) return 4;
+        if (s >= 95) return 1;
+        return 3;
     }
 }

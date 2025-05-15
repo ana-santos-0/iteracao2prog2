@@ -1,3 +1,4 @@
+/*
 import model.IMedicao;
 import java.util.Date;
 
@@ -24,3 +25,4 @@ public abstract class Medicao implements IMedicao {
         this.valor = valor;
     }
 }
+*/

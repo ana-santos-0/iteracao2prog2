@@ -1,13 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Classe base que representa uma pessoa.
- */
-public class Pessoa {
-    private String nome;
-    private Date dataNascimento;
+public abstract class Pessoa implements Serializable {
+    protected String nome;
+    protected Date dataNascimento;
 
     public Pessoa(String nome, Date dataNascimento) {
         this.nome = nome;

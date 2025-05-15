@@ -1,25 +1,20 @@
 package model;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class TecnicoSaude extends Pessoa {
     private String categoriaProfissional;
-    private List<IMedicao> medicoes = new ArrayList<>();
 
     public TecnicoSaude(String nome, Date dataNascimento, String categoriaProfissional) {
         super(nome, dataNascimento);
         this.categoriaProfissional = categoriaProfissional;
     }
 
-    /**
-     * Metodo para adicionar uma medição ao paciente.
-     *
-     paciente Paciente ao qual a medição será adicionada.
-     medicao  Medição a ser adicionada.
-     */
+    public String getCategoriaProfissional() {
+        return categoriaProfissional;
+    }
 
     public void adicionarMedicao(Paciente paciente, IMedicao medicao) {
         if (paciente != null && medicao != null) {
@@ -38,7 +33,7 @@ public class TecnicoSaude extends Pessoa {
         String categoriaProfissional = sc.nextLine();
         System.out.print("Data de nascimento (dd/mm/yyyy): ");
         String[] dataPartes = sc.nextLine().split("/");
-        Date dataNascimento = new Date(Integer.parseInt(dataPartes[2]) - 1900, Integer.parseInt(dataPartes[1]) - 1, Integer.parseInt(dataPartes[0]));
+        Date dataNascimento = new Date(Integer.parseInt(dataPartes[2]), Integer.parseInt(dataPartes[1]) - 1, Integer.parseInt(dataPartes[0]));
 
 
         return new TecnicoSaude(nome, dataNascimento, categoriaProfissional);
