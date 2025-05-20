@@ -108,7 +108,7 @@ public class Main {
     private static void simularAlteracoes() {
         System.out.print("Percentagem de alteração (ex: 10 ou -10): ");
         double percentagem = Double.parseDouble(scanner.nextLine());
-        service.Alteracoes.calcularScore(pacientes);
+        Alteracoes.simularAlteracoes(pacientes, percentagem);
     }
 
     private static void mostrarScoreGravidade() {
@@ -162,7 +162,7 @@ public class Main {
             return null;
         }
     }
-
+/// ERRO QUE NÃO SEI CORRIGIR o_O
     private static Date lerData(String input) {
         try {
             return new Date ("dd/MM/yyyy").parse(input);

@@ -34,7 +34,6 @@ public class Paciente extends Pessoa implements Serializable {
     public List<IMedicao> getMedicoes() {
         return medicoes;
     }
-
     public void adicionarMedicao(IMedicao medicao) {
         medicoes.add(medicao);
     }
@@ -117,6 +116,13 @@ public class Paciente extends Pessoa implements Serializable {
         }
 
     }
+
+    public void addMedicao(IMedicao medicao) {
+        if (medicao != null) {
+            medicoes.add(medicao);
+        }
+    }
+
 
     public double calcularMaximo(String tipo) {
         double maximo = Double.MIN_VALUE;

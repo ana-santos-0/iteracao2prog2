@@ -10,6 +10,7 @@ public interface IMedicao extends Serializable {
     Date getData();
     double getValor();
     String getTipo();
+    void setValor(double valor);
 /*
     public static void scoreDeGravidade(String[][] string1, double[][] string2, int i) {
         double scoreDeGravidade = 0;

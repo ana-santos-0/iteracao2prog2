@@ -5,6 +5,21 @@ import model.*;
 
 public class Alteracoes {
 
+    public static void simularAlteracoes(List<Paciente> pacientes, double percentagem) {
+        for (Paciente paciente : pacientes) {
+            for (IMedicao medicao : paciente.getMedicoes()) {
+                double valorOriginal = medicao.getValor();
+                double variacao = valorOriginal * percentagem / 100.0;
+                double novoValor = valorOriginal + variacao;
+
+                // Apenas se for do tipo editável
+                medicao.setValor(novoValor);
+            }
+        }
+
+        System.out.println("Alterações simuladas em todos os pacientes (" + percentagem + "%).");
+    }
+
     public static double calcularScore(Paciente p) {
         double fc = p.calcularMedia("Frequencia");
         double temp = p.calcularMedia("Temperatura");
