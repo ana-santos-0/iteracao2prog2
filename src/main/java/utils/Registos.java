@@ -93,8 +93,6 @@ public class Registos {
     // Metodo exemplo: classificação global (podes adaptar conforme os critérios)
     public static String classificarPaciente(Paciente paciente, Date inicio, Date fim) {
         List<Registo> registos = paciente.getRegistos();
-        //O metodo que estas querendo implentar não existe, alem que o objeto paciente não tem o objeto registo como uma das suas variaveis
-        //Começa por implementar o registo no paciente como uma caracteristica como se fosse um dooble ou assim e depois criar o metodo get nele.
         double mediaSat = calcularMedia("saturação", registos, inicio, fim);
 
         if (mediaSat < 90) {

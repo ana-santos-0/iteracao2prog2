@@ -57,9 +57,17 @@ public class Main {
 
         System.out.print("Altura (em metros): ");
         double altura = Double.parseDouble(scanner.nextLine());
+        if (altura < 1.0 || altura > 2.5) {
+            System.out.println("Altura inválida.");
+            return;
+        }
 
         System.out.print("Peso (em kg): ");
         double peso = Double.parseDouble(scanner.nextLine());
+        if (peso < 30 || peso > 150) {
+            System.out.println("Peso inválido.");
+            return;
+        }
 
         pacientes.add(new Paciente(nome, dataNascimento, altura, peso));
         System.out.println("Paciente adicionado.");
@@ -84,7 +92,6 @@ public class Main {
             case "saturacao" -> new SaturacaoOxigenio(data, valor);
             default -> null;
         };
-
         if (medicao != null) {
             p.adicionarMedicao(medicao);
             System.out.println("Medição registada.");
@@ -163,7 +170,6 @@ public class Main {
             return null;
         }
     }
-    /// ERRO QUE NÃO SEI CORRIGIR o_O
     private static Date lerData(String input) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
