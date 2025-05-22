@@ -163,12 +163,13 @@ public class Main {
             return null;
         }
     }
+    /// ERRO QUE NÃO SEI CORRIGIR o_O
     private static Date lerData(String input) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             return sdf.parse(input);        } catch (Exception e) {
             System.out.println("Formato de data inválido.");
             return new Date();
- }
-}
+        }
+    }
 }
