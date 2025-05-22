@@ -6,6 +6,7 @@ import java.util.Date;
  * Classe que implementa a medição de Frequência Cardíaca.
  */
 public class FrequenciaCardiaca implements IMedicao {
+    //fazer a classe Abstrata
     private Date data;
     private double valor;
 
@@ -27,4 +28,10 @@ public class FrequenciaCardiaca implements IMedicao {
     public String getTipo() {
         return "Frequência Cardíaca";
     }
+
+    @Override
+    public void setValor(double valor) {
+        this.valor = valor;
+}
+
 }

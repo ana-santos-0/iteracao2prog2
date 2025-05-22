@@ -1,4 +1,3 @@
-//metodo fechado
 package model;
 
 import java.io.Serializable;
@@ -12,9 +11,10 @@ public class Paciente extends Pessoa implements Serializable {
     private double altura;
     private double peso;
     private List<IMedicao> medicoes;
+    private List<Registo> registos;
 
     // Construtor
-    public Paciente(String nome, Date dataNascimento, double altura, double peso) {
+    public Paciente(String nome, Date dataNascimento, double altura, double peso ) {
         super(nome, dataNascimento);
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -29,6 +29,10 @@ public class Paciente extends Pessoa implements Serializable {
 
     public double getPeso() {
         return peso;
+    }
+
+    public List<Registo> getRegistos() {
+        return registos;
     }
 
     public List<IMedicao> getMedicoes() {
@@ -156,6 +160,5 @@ public class Paciente extends Pessoa implements Serializable {
 
     public String toString() {
         return nome + " (DN: " + new SimpleDateFormat("dd/MM/yyyy").format(dataNascimento)
-                + ") Altura: " + altura + "m, Peso: " + peso + "kg";
-    }
+                + ") Altura: " + altura + "m, Peso: " + peso + "kg";}
 }

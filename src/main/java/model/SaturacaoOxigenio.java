@@ -34,4 +34,9 @@ public class SaturacaoOxigenio implements IMedicao {
     public String getTipo() {
         return "Saturação de Oxigénio";
     }
+
+    @Override
+    public void setValor(double valor) {
+        this.valor =valor;
+}
 }

@@ -6,6 +6,7 @@ import service.Alteracoes;
 import utils.Graficos;
 import utils.Serializable;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main {
@@ -162,13 +163,12 @@ public class Main {
             return null;
         }
     }
-/// ERRO QUE NÃO SEI CORRIGIR o_O
     private static Date lerData(String input) {
         try {
-            return new Date ("dd/MM/yyyy").parse(input);
-        } catch (Exception e) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            return sdf.parse(input);        } catch (Exception e) {
             System.out.println("Formato de data inválido.");
             return new Date();
-        }
-    }
+ }
+}
 }
