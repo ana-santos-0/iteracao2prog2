@@ -77,26 +77,56 @@ public class Main {
         Paciente p = escolherPaciente();
         if (p == null) return;
 
-        System.out.print("Tipo de medição (Frequencia, Temperatura, Saturacao): ");
-        String tipo = scanner.nextLine();
+        // Escolher tipo de medição por número
+        System.out.println("Escolha o tipo de medição:");
+        System.out.println("1. Frequência Cardíaca");
+        System.out.println("2. Temperatura Corporal");
+        System.out.println("3. Saturação de Oxigénio");
+        System.out.print("Opção: ");
+        int opcaoTipo = Integer.parseInt(scanner.nextLine());
+
+        String tipo;
+        switch (opcaoTipo) {
+            case 1 -> tipo = "Frequencia";
+            case 2 -> tipo = "Temperatura";
+            case 3 -> tipo = "Saturacao";
+            default -> {
+                System.out.println("Opção inválida.");
+                return;
+            }
+        }
 
         System.out.print("Valor: ");
         double valor = Double.parseDouble(scanner.nextLine());
 
+        if (tipo.equals("Frequencia") && (valor < 30 || valor > 200)) {
+            System.out.println("Valor inválido. A frequência deve estar entre 30 e 200 bpm.");
+            return;
+        } else if (tipo.equals("Temperatura") && (valor < 30.0 || valor > 45.0)) {
+            System.out.println("Valor inválido. A temperatura deve estar entre 30.0°C e 45.0°C.");
+            return;
+        } else if (tipo.equals("Saturacao") && (valor < 0 || valor > 100)) {
+            System.out.println("Valor inválido. A saturação deve estar entre 0% e 100%.");
+            return;
+        }
+
+        // Data da medição
         System.out.print("Data da medição (dd/MM/yyyy): ");
         Date data = lerData(scanner.nextLine());
 
-        IMedicao medicao = switch (tipo.toLowerCase()) {
-            case "frequencia" -> new FrequenciaCardiaca(data, valor);
-            case "temperatura" -> new Temperatura(data, valor);
-            case "saturacao" -> new SaturacaoOxigenio(data, valor);
+        // Criar medição com base no tipo
+        IMedicao medicao = switch (tipo) {
+            case "Frequencia" -> new FrequenciaCardiaca(data, valor);
+            case "Temperatura" -> new Temperatura(data, valor);
+            case "Saturacao" -> new SaturacaoOxigenio(data, valor);
             default -> null;
         };
+
         if (medicao != null) {
             p.adicionarMedicao(medicao);
-            System.out.println("Medição registada.");
+            System.out.println("Medição registada com sucesso!");
         } else {
-            System.out.println("Tipo de medição inválido.");
+            System.out.println("Erro ao criar a medição. Tente novamente");
         }
     }
 
