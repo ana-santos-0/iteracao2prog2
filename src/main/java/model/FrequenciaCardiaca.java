@@ -26,7 +26,7 @@ public class FrequenciaCardiaca implements IMedicao {
     }
 
     public String getTipo() {
-        return "Frequência Cardíaca";
+        return "Frequencia";
     }
 
     @Override
