@@ -11,14 +11,7 @@ public class SaturacaoOxigenio implements IMedicao {
 
     public SaturacaoOxigenio(Date data, double valor) {
         this.data = data;
-        // Garante que o valor está entre 0 e 100
-        if (valor > 100) {
-            this.valor = 100;
-        } else if (valor < 0) {
-            this.valor = 0;
-        } else {
-            this.valor = valor;
-        }
+        this.valor = valor;
     }
 
     @Override
@@ -32,11 +25,11 @@ public class SaturacaoOxigenio implements IMedicao {
     }
 
     public String getTipo() {
-        return "Saturação de Oxigénio";
+        return "Saturacao";
     }
 
     @Override
     public void setValor(double valor) {
-        this.valor =valor;
-}
+        this.valor = valor;
+    }
 }
