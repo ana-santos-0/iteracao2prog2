@@ -9,6 +9,9 @@ public class Temperatura implements IMedicao {
     public Temperatura(Date data, double valor) {
         this.data = data;
         this.valor = valor;
+        if (valor < 30 || valor > 45) {
+            throw new IllegalArgumentException("Valor invalido. Tente novamente.");
+        }
     }
 
     @Override
