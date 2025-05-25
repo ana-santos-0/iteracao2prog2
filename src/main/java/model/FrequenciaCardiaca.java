@@ -11,11 +11,8 @@ public class FrequenciaCardiaca implements IMedicao {
     private double valor;
 
     public FrequenciaCardiaca(Date data, double valor) {
-
-        if (valor < 30 || valor > 200) {
-            throw new IllegalArgumentException("Valor inválido. Tente novamente.");
-        }
-
+        this.data = data;
+        this.valor = valor;
     }
 
     @Override
@@ -28,9 +25,8 @@ public class FrequenciaCardiaca implements IMedicao {
         return valor;
     }
 
-    @Override
     public String getTipo() {
-        return "Frequencia"; // SEM acento, com F maiúsculo
+        return "Frequencia";
     }
 
     @Override

@@ -1,0 +1,15 @@
+   # Lista de pacientes
+    Maria Silva;12/03/1980;1.65;65
+    João Costa;04/11/1975;1.75;82
+    Afonso Correia;05/07/2002;1.80;79
+    Constança Lopes;25/08/2012;1.38;36
+
+    # Secção de medicoes
+    medicoes
+    Maria Silva;frequencia;80;10/05/2024
+    Maria Silva;temperatura;37.2;10/05/2024
+    João Costa;saturacao;95;11/05/2024
+    Afonso Correia;temperatura;39;22/05/2023
+    Afonso Correia;frequencia;100;22/05/2023
+    Constança Lopes;saturacao;98;16/01/2025
+

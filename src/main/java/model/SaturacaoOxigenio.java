@@ -10,9 +10,6 @@ public class SaturacaoOxigenio implements IMedicao {
     private double valor;
 
     public SaturacaoOxigenio(Date data, double valor) {
-        if (valor < 0 || valor > 100) {
-            throw new IllegalArgumentException("A saturação de oxigénio deve estar entre 0% e 100%. Tente novamente.");
-        }
         this.data = data;
         this.valor = valor;
     }
@@ -33,9 +30,6 @@ public class SaturacaoOxigenio implements IMedicao {
 
     @Override
     public void setValor(double valor) {
-        if (valor < 0 || valor > 100) {
-            throw new IllegalArgumentException("a saturação de oxigénio deve estar entre 0% e 100%. Tente novamente.");
-        }
         this.valor = valor;
     }
 }
