@@ -2,13 +2,12 @@ package utils;
 
 public class Graficos {
 
-    public static void exibirBarra(String descricao, double valor) {
-        int asteriscos = (int) Math.round(valor / 5.0);  // Escala de 1 "*" por 5 unidades
-        StringBuilder barra = new StringBuilder();
-        for (int i = 0; i < asteriscos; i++) {
-            barra.append("*");
+    public static void Graficos(String titulo, double valor, int max) {
+        System.out.print(titulo + ": ");
+        int estrelas = (int) ((valor / max) * 50); // escala de 0 a 50 estrelas
+        for (int i = 0; i < estrelas; i++) {
+            System.out.print("*");
         }
-
-        System.out.printf("%-20s | %s (%.1f)%n", descricao, barra.toString(), valor);
+        System.out.println(" (" + String.format("%.1f", valor) + ")");
     }
 }
