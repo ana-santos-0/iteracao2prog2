@@ -1,7 +1,6 @@
 package main;
 
 import model.*;
-import model.Paciente;
 import service.Alteracoes;
 import utils.Graficos;
 import utils.Serializable;
@@ -29,6 +28,7 @@ public class Main {
                 case 7 -> mostrarGraficoPaciente();
                 case 8 -> mostrarPercentagemCriticos();
                 case 9 -> mostrarGraficoPaciente();
+                case 10 -> importarFicheiroDePacientes();
                 case 0 -> System.out.println("A sair...");
                 default -> System.out.println("Opção inválida.");
             }
@@ -46,6 +46,7 @@ public class Main {
         System.out.println("7. Mostrar gráfico de medições");
         System.out.println("8. Ver percentagem de pacientes críticos");
         System.out.println("9. Mostrar gráfico de medições");
+        System.out.println("10. Importar ficheiro com dados de pacientes");
         System.out.println("0. Sair");
         System.out.print("Escolha uma opção: ");
     }
@@ -57,7 +58,7 @@ public class Main {
         System.out.print("Data de nascimento (dd/MM/yyyy): ");
         Date dataNascimento = lerData(scanner.nextLine());
 
-        System.out.print("Altura (em metros): ");
+       System.out.print("Altura (em metros, e com um . a marcar os valores decimais): ");
         double altura = Double.parseDouble(scanner.nextLine());
         if (altura < 1.0 || altura > 2.5) {
             System.out.println("Altura inválida.");
@@ -208,6 +209,71 @@ public class Main {
             return sdf.parse(input);        } catch (Exception e) {
             System.out.println("Formato de data inválido.");
             return new Date();
+        }
+    }
+    private static void importarFicheiroDePacientes() {
+        try {
+            Scanner ficheiro = new Scanner(new File("dados/dados.txt"));
+            boolean secaoMedicoes = false;
+
+            while (ficheiro.hasNextLine()) {
+                String linha = ficheiro.nextLine().trim();
+                if (linha.isEmpty() || linha.startsWith("#")) continue;
+
+                if (linha.equalsIgnoreCase("medicoes")) {
+                    secaoMedicoes = true;
+                    continue;
+                }
+
+                if (!secaoMedicoes) {
+                    String[] partes = linha.split(";");
+                    if (partes.length == 4) {
+                        String nome = partes[0];
+                        Date dataNascimento = lerData(partes[1]);
+                        double altura = Double.parseDouble(partes[2]);
+                        double peso = Double.parseDouble(partes[3]);
+
+                        Paciente paciente = new Paciente(nome, dataNascimento, altura, peso);
+                        pacientes.add(paciente);
+                        System.out.println("Paciente importado: " + nome);
+                    }
+                } else {
+                    String[] partes = linha.split(";");
+                    if (partes.length == 4) {
+                        String nomePaciente = partes[0];
+                        String tipo = partes[1];
+                        double valor = Double.parseDouble(partes[2]);
+                        Date data = lerData(partes[3]);
+
+                        Paciente p = pacientes.stream()
+                                .filter(pac -> pac.getNome().equalsIgnoreCase(nomePaciente))
+                                .findFirst()
+                                .orElse(null);
+
+                        if (p != null) {
+                            IMedicao medicao = switch (tipo.toLowerCase()) {
+                                case "frequencia" -> new FrequenciaCardiaca(data, valor);
+                                case "temperatura" -> new Temperatura(data, valor);
+                                case "saturacao" -> new SaturacaoOxigenio(data, valor);
+                                default -> null;
+                            };
+
+                            if (medicao != null) {
+                                p.adicionarMedicao(medicao);
+                                System.out.println("Medição adicionada a " + nomePaciente + ": " + tipo + " = " + valor);
+                            }
+                        } else {
+                            System.out.println("Paciente não encontrado: " + nomePaciente);
+                        }
+                    }
+                }
+            }
+
+            ficheiro.close();
+            System.out.println("Importação do ficheiro concluída!");
+
+        } catch (Exception e) {
+            System.out.println("Erro ao importar ficheiro: " + e.getMessage());
         }
     }
 }
