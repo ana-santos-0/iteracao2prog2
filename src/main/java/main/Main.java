@@ -28,6 +28,7 @@ public class Main {
                 case 6 -> mostrarScoreGravidade();
                 case 7 -> mostrarGraficoPaciente();
                 case 8 -> mostrarPercentagemCriticos();
+                case 9 -> mostrarGraficoPaciente();
                 case 0 -> System.out.println("A sair...");
                 default -> System.out.println("Opção inválida.");
             }
@@ -44,6 +45,7 @@ public class Main {
         System.out.println("6. Calcular score de gravidade");
         System.out.println("7. Mostrar gráfico de medições");
         System.out.println("8. Ver percentagem de pacientes críticos");
+        System.out.println("9. Mostrar gráfico de medições");
         System.out.println("0. Sair");
         System.out.print("Escolha uma opção: ");
     }
@@ -161,9 +163,9 @@ public class Main {
         if (p == null) return;
 
         System.out.println("Gráfico de medições de " + p.getNome());
-        Graficos.exibirBarra("Frequência (bpm)", p.calcularMedia("Frequencia"));
-        Graficos.exibirBarra("Temperatura (°C)", p.calcularMedia("Temperatura"));
-        Graficos.exibirBarra("Saturação (%)", p.calcularMedia("Saturacao"));
+        Graficos.Graficos("Frequência (bpm)",p.calcularMedia("Frequencia"), 100);
+        Graficos.Graficos("Temperatura (°C)", p.calcularMedia("Temperatura"), 50);
+        Graficos.Graficos("Saturação (%)", p.calcularMedia("Saturacao"), 100);
     }
 
     private static void mostrarPercentagemCriticos() {
