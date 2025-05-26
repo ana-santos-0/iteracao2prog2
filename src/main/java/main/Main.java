@@ -5,6 +5,7 @@ import service.Alteracoes;
 import utils.Graficos;
 import utils.Serializable;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -27,8 +28,7 @@ public class Main {
                 case 6 -> mostrarScoreGravidade();
                 case 7 -> mostrarGraficoPaciente();
                 case 8 -> mostrarPercentagemCriticos();
-                case 9 -> mostrarGraficoPaciente();
-                case 10 -> importarFicheiroDePacientes();
+                case 9 -> importarFicheiroDePacientes();
                 case 0 -> System.out.println("A sair...");
                 default -> System.out.println("Opção inválida.");
             }
@@ -45,8 +45,7 @@ public class Main {
         System.out.println("6. Calcular score de gravidade");
         System.out.println("7. Mostrar gráfico de medições");
         System.out.println("8. Ver percentagem de pacientes críticos");
-        System.out.println("9. Mostrar gráfico de medições");
-        System.out.println("10. Importar ficheiro com dados de pacientes");
+        System.out.println("9. Importar ficheiro com dados de pacientes");
         System.out.println("0. Sair");
         System.out.print("Escolha uma opção: ");
     }
