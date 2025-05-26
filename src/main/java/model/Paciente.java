@@ -84,7 +84,7 @@ public class Paciente extends Pessoa implements Serializable {
         }
     }
 
-    public double calcularDesvioPadrao(String tipo) {
+    public double calcularDesvioPadrao (String tipo) {
         double media = calcularMedia(tipo);
         double somaQuadrados = 0;
         int count = 0;
