@@ -13,7 +13,7 @@ class AlteracoesTest {
 
     @Test
     void testSimularAlteracoes() {
-        Paciente paciente = new Paciente("Maria", new Date());
+        Paciente paciente = new Paciente("Maria", new Date(), 1.78, 59);
         IMedicao medicao = new Temperatura(new Date(), 36.5);
         paciente.addMedicao(medicao);
 

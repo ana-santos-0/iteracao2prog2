@@ -14,7 +14,7 @@ class SerializableTest {
     @Test
     void testGuardarECarregarPacientes() {
         List<Paciente> pacientes = new ArrayList<>();
-        Paciente paciente = new Paciente("João", new Date());
+        Paciente paciente = new Paciente("João", new Date(), 1.78, 58);
         pacientes.add(paciente);
 
         String caminho = "test_pacientes.dat";
